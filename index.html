@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Soul Encounter</title>
+  <style>
+    body {
+      background-color: #001f2b;
+      color: #aeeaff;
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+
+    a {
+      display: inline-block;
+      color: #fff;
+      background: rgba(174, 234, 255, 0.1);
+      border: 2px solid #aeeaff;
+      border-radius: 20px;
+      padding: 14px 28px;
+      text-decoration: none;
+      font-size: 20px;
+      transition: all 0.5s;
+    }
+
+    a:hover {
+      background: rgba(174, 234, 255, 0.2);
+      box-shadow: 0 0 20px #aeeaff;
+      transform: scale(1.05);
+    }
+
+    small {
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Let fate decide your encounter</h1>
+  <a id="randomLink" href="#" target="_blank">Drift to a soul</a>
+  <small>If the soul is not found, perhaps the tide turned them away.</small>
+
+  <script>
+    function getRandomUserLink() {
+      const min = 1000;       // Safe lower bound
+      const max = 200000;     // Conservative upper bound
+      const id = Math.floor(Math.random() * (max - min)) + min;
+      return `https://spacehey.com/profile?id=${id}`;
+    }
+
+    document.getElementById("randomLink").href = getRandomUserLink();
+  </script>
+</body>
+</html>
