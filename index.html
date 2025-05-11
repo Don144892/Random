@@ -50,15 +50,19 @@
   <a id="randomLink" href="#" target="_blank">Drift to a soul</a>
   <small>If the soul is not found, perhaps the tide turned them away.</small>
 
-  <script>
-    function getRandomUserLink() {
-      const min = 10;      // Safe lower bound
-      const max = 350000;     // Conservative upper bound
-      const id = Math.floor(Math.random() * (max - min)) + min;
-      return `https://spacehey.com/profile?id=${id}`;
-    }
+<script>
+  function getRandomUserLink() {
+    const min = 10;          // Safe lower bound
+    const max = 350000;      // Conservative upper bound
 
-    document.getElementById("randomLink").href = getRandomUserLink();
-  </script>
+    const seed = Math.floor(Date.now() / 1000); 
+    const pseudoRandom = (seed * 9301 + 49297) % 233280;
+    const id = Math.floor(min + (pseudoRandom / 233280) * (max - min));
+
+    return `https://spacehey.com/profile?id=${id}&t=${seed}`;
+  }
+
+  window.location.href = getRandomUserLink();
+</script>
 </body>
 </html>
