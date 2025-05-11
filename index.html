@@ -52,8 +52,8 @@
 
   <script>
     function getRandomUserLink() {
-      const min = 10;       // Safe lower bound
-      const max = 200000;     // Conservative upper bound
+      const min = 10;      // Safe lower bound
+      const max = 350000;     // Conservative upper bound
       const id = Math.floor(Math.random() * (max - min)) + min;
       return `https://spacehey.com/profile?id=${id}`;
     }
